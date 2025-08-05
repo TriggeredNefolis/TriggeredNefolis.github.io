@@ -1,1 +1,0 @@
-# TriggeredNefolis.github.io
