@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Shop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="login-section">
+        <h2>Login</h2>
+        <input type="text" id="login-username" placeholder="Username">
+        <input type="password" id="login-password" placeholder="Password">
+        <button onclick="login()">Login</button>
+        <p>Don't have an account? <span onclick="showSignup()" class="link">Sign up</span></p>
+        <p id="login-msg"></p>
+    </div>
+    <div id="signup-section" style="display:none;">
+        <h2>Sign Up</h2>
+        <input type="text" id="signup-username" placeholder="Username">
+        <input type="password" id="signup-password" placeholder="Password">
+        <button onclick="signup()">Sign Up</button>
+        <p>Already have an account? <span onclick="showLogin()" class="link">Login</span></p>
+        <p id="signup-msg"></p>
+    </div>
+    <div id="shop-section" style="display:none;">
+        <h2>Welcome to the Shop <span id="user-role"></span></h2>
+        <button onclick="logout()">Logout</button>
+        <div id="admin-panel" style="display:none;">
+            <h3>Admin Panel</h3>
+            <input type="text" id="product-name" placeholder="Product Name">
+            <input type="number" id="product-price" placeholder="Price">
+            <button onclick="addProduct()">Add Product</button>
+        </div>
+        <h3>Product List</h3>
+        <ul id="product-list"></ul>
+        <div id="review-section">
+            <h3>Reviews</h3>
+            <ul id="reviews"></ul>
+            <textarea id="review-input" placeholder="Leave a review"></textarea>
+            <button onclick="addReview()">Submit Review</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
