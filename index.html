@@ -1,19 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>TriggeredNefolis Portfolio</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Game Store</title>
+<link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div id="main-container">
-        <div id="profile-section">
-            <img id="profile-pic" src="default-profile.png" alt="Profile Picture">
-            <div id="site-desc">Loading...</div>
-        </div>
-        <div id="profile-error" class="error"></div>
-    </div>
-    <script src="script.js"></script>
+
+<header>
+  <button id="menu-btn">&#9776;</button>
+  <input type="search" placeholder="Search for products" id="search" />
+  <button id="cart-btn">🛒<span id="cart-count">0</span></button>
+</header>
+
+<div class="sidebar">
+  <button id="sidebar-toggle">Show sidebar</button>
+</div>
+
+<main>
+  <div class="grid" id="game-grid">
+    <!-- Game cards inserted by JS -->
+  </div>
+</main>
+
+<!-- Description modal -->
+<div class="modal" id="desc-modal" aria-hidden="true">
+  <div class="modal-content">
+    <button class="close-btn" id="close-desc">&times;</button>
+    <div id="desc-container"></div>
+  </div>
+</div>
+
+<script src="app.js"></script>
 </body>
 </html>
