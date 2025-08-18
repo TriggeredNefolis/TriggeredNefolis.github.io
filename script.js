@@ -273,49 +273,62 @@ function submitOrder() {
         `• ${item.name} x${item.quantity} - Rs. ${(item.price * item.quantity).toLocaleString()}`
     ).join('\n');
     
-    const orderMessage = `🎮 **NEW ORDER - GamePort Nepal**\n\n` +
-        `👤 **Customer:** ${name}\n` +
-        `📞 **Phone:** ${phone}\n` +
-        `📧 **Email:** ${email || 'Not provided'}\n` +
-        `📍 **Address:** ${address}\n\n` +
-        `🛒 **Items:**\n${orderSummary}\n\n` +
-        `💰 **Total: Rs. ${calculateTotal().toLocaleString()}**\n\n` +
-        `📝 **Notes:** ${notes || 'None'}\n\n` +
-        `⏰ **Order Time:** ${new Date().toLocaleString()}`;
+    // Send to Discord Webhook
+    sendToDiscord(name, phone, email, address, notes, orderSummary);
     
-    // Create Discord URL with pre-filled message
-    const discordUrl = `https://discord.gg/XjuaQBFD8W`;
-    
-    // Show success message
-    showNotification('Order details ready! Redirecting to Discord...', 'success');
-    
-    // Store order details in localStorage for Discord
-    localStorage.setItem('gameport_order', JSON.stringify({
-        customer: { name, phone, email, address, notes },
-        items: cart,
-        total: calculateTotal(),
-        message: orderMessage
-    }));
-    
-    // Clear cart
+    // Clear cart and close modal
     cart = [];
     updateCartCount();
-    
-    // Close modal
     closeOrder();
-    
-    // Reset form
     document.getElementById('order-form').reset();
     
-    // Redirect to Discord
+    // Show success and redirect
+    showNotification('Order sent to Discord! Redirecting...', 'success');
     setTimeout(() => {
-        window.open(discordUrl, '_blank');
-    }, 1500);
-    
-    // Show instructions
-    setTimeout(() => {
-        alert(`📋 ORDER READY FOR DISCORD!\n\nYour order details are ready. Please:\n\n1. Join our Discord server (opening now)\n2. Go to the orders channel\n3. Paste your order details\n\nOrder Summary:\n${orderMessage}`);
+        window.open('https://discord.gg/XjuaQBFD8W', '_blank');
     }, 2000);
+}
+
+async function sendToDiscord(name, phone, email, address, notes, orderSummary) {
+    // REPLACE THIS WITH YOUR ACTUAL WEBHOOK URL
+    const webhookUrl = 'https://discord.com/api/webhooks/YOUR_WEBHOOK_ID/YOUR_WEBHOOK_TOKEN';
+    
+    const embed = {
+        title: '🎮 New Order - GamePort Nepal',
+        color: 0x10b981,
+        fields: [
+            { name: '👤 Customer', value: name, inline: true },
+            { name: '📞 Phone', value: phone, inline: true },
+            { name: '📧 Email', value: email || 'Not provided', inline: true },
+            { name: '📍 Address', value: address, inline: false },
+            { name: '🛒 Items', value: orderSummary, inline: false },
+            { name: '💰 Total', value: `Rs. ${calculateTotal().toLocaleString()}`, inline: true },
+        ],
+        timestamp: new Date().toISOString(),
+        footer: { text: 'GamePort Nepal • Order Management' }
+    };
+    
+    if (notes) {
+        embed.fields.push({ name: '📝 Notes', value: notes, inline: false });
+    }
+    
+    try {
+        const response = await fetch(webhookUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ embeds: [embed] })
+        });
+        
+        if (response.ok) {
+            console.log('Order sent to Discord successfully!');
+        } else {
+            throw new Error('Failed to send to Discord');
+        }
+    } catch (error) {
+        console.error('Error sending to Discord:', error);
+        // Fallback: still redirect to Discord for manual order
+        showNotification('Webhook failed, but redirecting to Discord...', 'info');
+    }
 }
 
 function showNotification(message, type) {
