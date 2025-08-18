@@ -290,8 +290,8 @@ function submitOrder() {
 }
 
 async function sendToDiscord(name, phone, email, address, notes, orderSummary) {
-    // REPLACE THIS WITH YOUR ACTUAL WEBHOOK URL
-    const webhookUrl = 'https://discord.com/api/webhooks/YOUR_WEBHOOK_ID/YOUR_WEBHOOK_TOKEN';
+    // Your GamePort Nepal Discord Webhook
+    const webhookUrl = 'https://discord.com/api/webhooks/1406851782096846910/npe0FHRlNnqEDQ-NUFssyMn9Y_rqDB_wPXompXYmXwFK6H4eoBwF7wHV6hAJ_-plYxYl';
     
     const embed = {
         title: '🎮 New Order - GamePort Nepal',
