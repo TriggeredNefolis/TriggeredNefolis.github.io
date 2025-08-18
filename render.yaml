@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: gameport-nepal
+    env: node
+    buildCommand: |
+      cd frontend
+      npm install
+      npm run build
+      cd ../backend
+      pip install -r requirements.txt
+    startCommand: cd backend && uvicorn server:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: NODE_VERSION
+        value: "18"
+      - key: PYTHON_VERSION  
+        value: "3.11.0"
+      - key: MONGO_URL
+        sync: false
+    staticPublishPath: ./frontend/build

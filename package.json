@@ -1,0 +1,22 @@
+{
+  "name": "gameport-nepal",
+  "version": "1.0.0",
+  "description": "GamePort Nepal E-commerce Website",
+  "main": "backend/server.py",
+  "scripts": {
+    "start": "cd backend && uvicorn server:app --host 0.0.0.0 --port ${PORT:-8000}",
+    "build": "cd frontend && npm install && npm run build",
+    "dev": "cd frontend && npm start"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "your-github-repo-url"
+  },
+  "keywords": ["gaming", "ecommerce", "nepal", "react", "fastapi"],
+  "author": "GamePort Nepal",
+  "license": "MIT"
+}
