@@ -1,194 +1,184 @@
-// Products data - GamePort Nepal Digital Store
+// Products data - GamePort Nepal Digital Store (Premium items first)
 const products = [
-    // Special Items
+    // PREMIUM PRODUCTS FIRST 💎
     {
-        id: '1',
-        name: 'Menace Cape',
-        price: 250,
-        image: 'https://images.unsplash.com/photo-1579952363873-27d3bfad9c0d?w=500&h=300&fit=crop&crop=center',
-        category: 'Cosmetic',
-        platform: 'Game Item',
-        description: 'Exclusive Menace Cape for your gaming character. Stand out in style!',
-        inStock: true
-    },
-    
-    // PUBG UC Packages
-    {
-        id: '2',
-        name: 'PUBG UC - 60 UC',
-        price: 150,
-        image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=500&h=300&fit=crop&crop=center',
-        category: 'Game Currency',
-        platform: 'PUBG Mobile',
-        description: 'PUBG Unknown Cash - 60 UC for in-game purchases and upgrades.',
-        inStock: true
-    },
-    {
-        id: '3',
-        name: 'PUBG UC - 120 UC',
-        price: 295,
-        image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=500&h=300&fit=crop&crop=center',
-        category: 'Game Currency',
-        platform: 'PUBG Mobile',
-        description: 'PUBG Unknown Cash - 120 UC for in-game purchases and upgrades.',
-        inStock: true
-    },
-    {
-        id: '4',
-        name: 'PUBG UC - 325 UC',
-        price: 762,
-        image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=500&h=300&fit=crop&crop=center',
-        category: 'Game Currency',
-        platform: 'PUBG Mobile',
-        description: 'PUBG Unknown Cash - 325 UC for in-game purchases and upgrades.',
-        inStock: true
-    },
-    {
-        id: '5',
-        name: 'PUBG UC - 660 UC',
-        price: 1485,
-        image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=500&h=300&fit=crop&crop=center',
-        category: 'Game Currency',
-        platform: 'PUBG Mobile',
-        description: 'PUBG Unknown Cash - 660 UC for in-game purchases and upgrades.',
-        inStock: true
-    },
-    {
-        id: '6',
-        name: 'PUBG UC - 985 UC',
-        price: 2231,
-        image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=500&h=300&fit=crop&crop=center',
-        category: 'Game Currency',
-        platform: 'PUBG Mobile',
-        description: 'PUBG Unknown Cash - 985 UC for in-game purchases and upgrades.',
-        inStock: true
-    },
-
-    // Free Fire Diamonds - Popular Packages
-    {
-        id: '7',
-        name: 'Free Fire - 115 Diamonds',
-        price: 90,
-        image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=500&h=300&fit=crop&crop=center',
-        category: 'Game Currency',
-        platform: 'Free Fire',
-        description: 'Free Fire Diamonds - 115💎 for characters, skins and upgrades. UID Required.',
-        inStock: true
-    },
-    {
-        id: '8',
-        name: 'Free Fire - 240 Diamonds',
-        price: 180,
-        image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=500&h=300&fit=crop&crop=center',
-        category: 'Game Currency',
-        platform: 'Free Fire',
-        description: 'Free Fire Diamonds - 240💎 for characters, skins and upgrades. UID Required.',
-        inStock: true
-    },
-    {
-        id: '9',
-        name: 'Free Fire - 610 Diamonds',
-        price: 435,
-        image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=500&h=300&fit=crop&crop=center',
-        category: 'Game Currency',
-        platform: 'Free Fire',
-        description: 'Free Fire Diamonds - 610💎 for characters, skins and upgrades. UID Required.',
-        inStock: true
-    },
-    {
-        id: '10',
-        name: 'Free Fire - 1240 Diamonds',
-        price: 855,
-        image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=500&h=300&fit=crop&crop=center',
-        category: 'Game Currency',
-        platform: 'Free Fire',
-        description: 'Free Fire Diamonds - 1240💎 for characters, skins and upgrades. UID Required.',
+        id: '18',
+        name: 'Minecraft Account (Java + Bedrock)',
+        price: 3999,
+        image: 'https://tse3.mm.bing.net/th/id/OIP.KO2HbRC_h67s9ACdI4VyzAHaDu?r=0&cb=thfvnext&rs=1&pid=ImgDetMain&o=7&rm=3',
+        category: 'Game Account',
+        platform: 'PC/Mobile',
+        description: 'Brand New Minecraft Account with Java + Bedrock editions included.',
         inStock: true
     },
     {
         id: '11',
         name: 'Free Fire - 5060 Diamonds',
         price: 3410,
-        image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=500&h=300&fit=crop&crop=center',
+        image: 'https://www.talkesport.com/wp-content/uploads/free-fire-free-diamonds.webp',
         category: 'Game Currency',
         platform: 'Free Fire',
         description: 'Free Fire Diamonds - 5060💎 MEGA PACK for characters, skins and upgrades. UID Required.',
         inStock: true
     },
-
-    // Free Fire Passes
     {
-        id: '12',
-        name: 'Free Fire Weekly Pass',
-        price: 175,
-        image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=500&h=300&fit=crop&crop=center',
-        category: 'Game Pass',
-        platform: 'Free Fire',
-        description: 'Free Fire Weekly Pass - Unlock exclusive rewards and benefits.',
+        id: '6',
+        name: 'PUBG UC - 985 UC',
+        price: 2231,
+        image: 'https://th.bing.com/th/id/OIP.f1nTlu-kk76qdgoJwZJXPwHaEK?w=290&h=180&c=7&r=0&o=7&pid=1.7&rm=3',
+        category: 'Game Currency',
+        platform: 'PUBG Mobile',
+        description: 'PUBG Unknown Cash - 985 UC for in-game purchases and upgrades.',
         inStock: true
     },
     {
-        id: '13',
-        name: 'Free Fire Monthly Pass',
-        price: 860,
-        image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=500&h=300&fit=crop&crop=center',
-        category: 'Game Pass',
-        platform: 'Free Fire',
-        description: 'Free Fire Monthly Pass - Unlock exclusive rewards and benefits.',
-        inStock: true
-    },
-    {
-        id: '14',
-        name: 'Free Fire Combo Pass (Weekly + Monthly)',
-        price: 1020,
-        image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=500&h=300&fit=crop&crop=center',
-        category: 'Game Pass',
-        platform: 'Free Fire',
-        description: '🔥 COMBO OFFER! Weekly + Monthly Pass bundle - Best value deal!',
-        inStock: true
-    },
-
-    // Discord Nitro
-    {
-        id: '15',
-        name: 'Discord Nitro Basic - 1 Month',
-        price: 440,
-        image: 'https://images.unsplash.com/photo-1611605698335-8b1569810432?w=500&h=300&fit=crop&crop=center',
-        category: 'Subscription',
-        platform: 'Discord',
-        description: 'Discord Nitro Basic subscription - Enhanced chat features and perks.',
+        id: '5',
+        name: 'PUBG UC - 660 UC',
+        price: 1485,
+        image: 'https://th.bing.com/th/id/OIP.f1nTlu-kk76qdgoJwZJXPwHaEK?w=290&h=180&c=7&r=0&o=7&pid=1.7&rm=3',
+        category: 'Game Currency',
+        platform: 'PUBG Mobile',
+        description: 'PUBG Unknown Cash - 660 UC for in-game purchases and upgrades.',
         inStock: true
     },
     {
         id: '16',
         name: 'Discord Nitro - 1 Month',
         price: 1499,
-        image: 'https://images.unsplash.com/photo-1611605698335-8b1569810432?w=500&h=300&fit=crop&crop=center',
+        image: 'https://thfvnext.bing.com/th/id/OIP.tSdvxVSwRPTB68Y89ZeRiwHaEC?r=0&o=7&cb=thfvnextrm=3&rs=1&pid=ImgDetMain&o=7&rm=3',
         category: 'Subscription',
         platform: 'Discord',
         description: 'Discord Nitro Premium subscription - All features unlocked.',
         inStock: true
     },
-
-    // Roblox & Minecraft
+    {
+        id: '14',
+        name: 'Free Fire Combo Pass (Weekly + Monthly)',
+        price: 1020,
+        image: 'https://www.talkesport.com/wp-content/uploads/free-fire-free-diamonds.webp',
+        category: 'Game Pass',
+        platform: 'Free Fire',
+        description: '🔥 COMBO OFFER! Weekly + Monthly Pass bundle - Best value deal!',
+        inStock: true
+    },
+    {
+        id: '13',
+        name: 'Free Fire Monthly Pass',
+        price: 860,
+        image: 'https://www.talkesport.com/wp-content/uploads/free-fire-free-diamonds.webp',
+        category: 'Game Pass',
+        platform: 'Free Fire',
+        description: 'Free Fire Monthly Pass - Unlock exclusive rewards and benefits.',
+        inStock: true
+    },
+    {
+        id: '10',
+        name: 'Free Fire - 1240 Diamonds',
+        price: 855,
+        image: 'https://www.talkesport.com/wp-content/uploads/free-fire-free-diamonds.webp',
+        category: 'Game Currency',
+        platform: 'Free Fire',
+        description: 'Free Fire Diamonds - 1240💎 for characters, skins and upgrades. UID Required.',
+        inStock: true
+    },
+    {
+        id: '4',
+        name: 'PUBG UC - 325 UC',
+        price: 762,
+        image: 'https://th.bing.com/th/id/OIP.f1nTlu-kk76qdgoJwZJXPwHaEK?w=290&h=180&c=7&r=0&o=7&pid=1.7&rm=3',
+        category: 'Game Currency',
+        platform: 'PUBG Mobile',
+        description: 'PUBG Unknown Cash - 325 UC for in-game purchases and upgrades.',
+        inStock: true
+    },
     {
         id: '17',
         name: 'Roblox 400 Robux Gift Card',
         price: 720,
-        image: 'https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=500&h=300&fit=crop&crop=center',
+        image: 'https://thfvnext.bing.com/th/id/OIP.J-WwjuivvLUHs1bRtOw6hwHaIy?r=0&o=7&cb=thfvnextrm=3&rs=1&pid=ImgDetMain&o=7&rm=3',
         category: 'Game Currency',
         platform: 'Roblox',
         description: 'Roblox Digital Gift Card - 400 Robux for games, accessories, and upgrades.',
         inStock: true
     },
     {
-        id: '18',
-        name: 'Minecraft Account (Java + Bedrock)',
-        price: 3999,
-        image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop&crop=center',
-        category: 'Game Account',
-        platform: 'PC/Mobile',
-        description: 'Brand New Minecraft Account with Java + Bedrock editions included.',
+        id: '15',
+        name: 'Discord Nitro Basic - 1 Month',
+        price: 440,
+        image: 'https://tse4.mm.bing.net/th/id/OIP.htlr6BrX9NbKhKFN6uQabgHaHa?r=0&cb=thfvnext&rs=1&pid=ImgDetMain&o=7&rm=3',
+        category: 'Subscription',
+        platform: 'Discord',
+        description: 'Discord Nitro Basic subscription - Enhanced chat features and perks.',
+        inStock: true
+    },
+    {
+        id: '9',
+        name: 'Free Fire - 610 Diamonds',
+        price: 435,
+        image: 'https://www.talkesport.com/wp-content/uploads/free-fire-free-diamonds.webp',
+        category: 'Game Currency',
+        platform: 'Free Fire',
+        description: 'Free Fire Diamonds - 610💎 for characters, skins and upgrades. UID Required.',
+        inStock: true
+    },
+    {
+        id: '3',
+        name: 'PUBG UC - 120 UC',
+        price: 295,
+        image: 'https://th.bing.com/th/id/OIP.f1nTlu-kk76qdgoJwZJXPwHaEK?w=290&h=180&c=7&r=0&o=7&pid=1.7&rm=3',
+        category: 'Game Currency',
+        platform: 'PUBG Mobile',
+        description: 'PUBG Unknown Cash - 120 UC for in-game purchases and upgrades.',
+        inStock: true
+    },
+    {
+        id: '1',
+        name: 'Menace Cape',
+        price: 250,
+        image: 'https://minecraft.wiki/images/Menace_cape_artwork.png?0f97f&format=original',
+        category: 'Cosmetic',
+        platform: 'Minecraft',
+        description: 'Exclusive Menace Cape for your Minecraft character. Stand out in style!',
+        inStock: true
+    },
+    {
+        id: '8',
+        name: 'Free Fire - 240 Diamonds',
+        price: 180,
+        image: 'https://www.talkesport.com/wp-content/uploads/free-fire-free-diamonds.webp',
+        category: 'Game Currency',
+        platform: 'Free Fire',
+        description: 'Free Fire Diamonds - 240💎 for characters, skins and upgrades. UID Required.',
+        inStock: true
+    },
+    {
+        id: '12',
+        name: 'Free Fire Weekly Pass',
+        price: 175,
+        image: 'https://www.talkesport.com/wp-content/uploads/free-fire-free-diamonds.webp',
+        category: 'Game Pass',
+        platform: 'Free Fire',
+        description: 'Free Fire Weekly Pass - Unlock exclusive rewards and benefits.',
+        inStock: true
+    },
+    {
+        id: '2',
+        name: 'PUBG UC - 60 UC',
+        price: 150,
+        image: 'https://th.bing.com/th/id/OIP.f1nTlu-kk76qdgoJwZJXPwHaEK?w=290&h=180&c=7&r=0&o=7&pid=1.7&rm=3',
+        category: 'Game Currency',
+        platform: 'PUBG Mobile',
+        description: 'PUBG Unknown Cash - 60 UC for in-game purchases and upgrades.',
+        inStock: true
+    },
+    {
+        id: '7',
+        name: 'Free Fire - 115 Diamonds',
+        price: 90,
+        image: 'https://www.talkesport.com/wp-content/uploads/free-fire-free-diamonds.webp',
+        category: 'Game Currency',
+        platform: 'Free Fire',
+        description: 'Free Fire Diamonds - 115💎 for characters, skins and upgrades. UID Required.',
         inStock: true
     }
 ];
