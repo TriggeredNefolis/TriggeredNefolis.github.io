@@ -1,83 +1,194 @@
-// Products data
+// Products data - GamePort Nepal Digital Store
 const products = [
+    // Special Items
     {
         id: '1',
-        name: 'The Witcher 3: Wild Hunt - Complete Edition',
-        price: 2500,
-        image: 'https://images.unsplash.com/photo-1607853202273-797f1c22a38e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzV8MHwxfHNlYXJjaHwxfHxjb25zb2xlfGVufDB8fHx8MTc1NTQ4NjE3OXww&ixlib=rb-4.1.0&q=85',
-        category: 'RPG',
-        platform: 'PC/Console',
-        description: 'Award-winning open-world RPG with all DLCs included. Experience Geralt\'s final adventure.',
+        name: 'Menace Cape',
+        price: 250,
+        image: 'https://images.unsplash.com/photo-1579952363873-27d3bfad9c0d?w=500&h=300&fit=crop&crop=center',
+        category: 'Cosmetic',
+        platform: 'Game Item',
+        description: 'Exclusive Menace Cape for your gaming character. Stand out in style!',
         inStock: true
     },
+    
+    // PUBG UC Packages
     {
         id: '2',
-        name: 'PlayStation 5 DualSense Controller',
-        price: 8500,
-        image: 'https://images.unsplash.com/photo-1509198397868-475647b2a1e5?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwyfHxnYW1pbmclMjBjb250cm9sbGVyfGVufDB8fHx8MTc1NTQ4NjE3NHww&ixlib=rb-4.1.0&q=85',
-        category: 'Controller',
-        platform: 'PlayStation 5',
-        description: 'Next-gen wireless controller with haptic feedback and adaptive triggers.',
+        name: 'PUBG UC - 60 UC',
+        price: 150,
+        image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=500&h=300&fit=crop&crop=center',
+        category: 'Game Currency',
+        platform: 'PUBG Mobile',
+        description: 'PUBG Unknown Cash - 60 UC for in-game purchases and upgrades.',
         inStock: true
     },
     {
         id: '3',
-        name: 'Cyberpunk 2077',
-        price: 3200,
-        image: 'https://images.unsplash.com/photo-1611138290962-2c550ffd4002?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwxfHxnYW1pbmclMjBjb250cm9sbGVyfGVufDB8fHx8MTc1NTQ4NjE3NHww&ixlib=rb-4.1.0&q=85',
-        category: 'Action RPG',
-        platform: 'PC/Console',
-        description: 'Open-world action-adventure RPG set in Night City. Now fully optimized!',
+        name: 'PUBG UC - 120 UC',
+        price: 295,
+        image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=500&h=300&fit=crop&crop=center',
+        category: 'Game Currency',
+        platform: 'PUBG Mobile',
+        description: 'PUBG Unknown Cash - 120 UC for in-game purchases and upgrades.',
         inStock: true
     },
     {
         id: '4',
-        name: 'Xbox Series X/S Wireless Controller',
-        price: 7500,
-        image: 'https://images.unsplash.com/photo-1616341317041-cf93b2389ef5?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwzfHxnYW1pbmclMjBjb250cm9sbGVyfGVufDB8fHx8MTc1NTQ4NjE3NHww&ixlib=rb-4.1.0&q=85',
-        category: 'Controller',
-        platform: 'Xbox',
-        description: 'Precision gaming controller with enhanced D-pad and textured grips.',
+        name: 'PUBG UC - 325 UC',
+        price: 762,
+        image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=500&h=300&fit=crop&crop=center',
+        category: 'Game Currency',
+        platform: 'PUBG Mobile',
+        description: 'PUBG Unknown Cash - 325 UC for in-game purchases and upgrades.',
         inStock: true
     },
     {
         id: '5',
-        name: 'God of War Ragnarök',
-        price: 4000,
-        image: 'https://images.unsplash.com/photo-1526509867162-5b0c0d1b4b33?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzV8MHwxfHNlYXJjaHwyfHxjb25zb2xlfGVufDB8fHx8MTc1NTQ4NjE3OXww&ixlib=rb-4.1.0&q=85',
-        category: 'Action Adventure',
-        platform: 'PlayStation',
-        description: 'Epic Norse mythology adventure featuring Kratos and Atreus.',
+        name: 'PUBG UC - 660 UC',
+        price: 1485,
+        image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=500&h=300&fit=crop&crop=center',
+        category: 'Game Currency',
+        platform: 'PUBG Mobile',
+        description: 'PUBG Unknown Cash - 660 UC for in-game purchases and upgrades.',
         inStock: true
     },
     {
         id: '6',
-        name: 'Gaming Headset Pro',
-        price: 5500,
-        image: 'https://images.pexels.com/photos/21067/pexels-photo.jpg',
-        category: 'Accessory',
-        platform: 'Universal',
-        description: 'Professional gaming headset with 7.1 surround sound and noise cancellation.',
+        name: 'PUBG UC - 985 UC',
+        price: 2231,
+        image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=500&h=300&fit=crop&crop=center',
+        category: 'Game Currency',
+        platform: 'PUBG Mobile',
+        description: 'PUBG Unknown Cash - 985 UC for in-game purchases and upgrades.',
         inStock: true
     },
+
+    // Free Fire Diamonds - Popular Packages
     {
         id: '7',
-        name: 'Elden Ring',
-        price: 3800,
-        image: 'https://images.pexels.com/photos/4842487/pexels-photo-4842487.jpeg',
-        category: 'Action RPG',
-        platform: 'PC/Console',
-        description: 'FromSoftware\'s masterpiece. Explore the Lands Between in this epic adventure.',
+        name: 'Free Fire - 115 Diamonds',
+        price: 90,
+        image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=500&h=300&fit=crop&crop=center',
+        category: 'Game Currency',
+        platform: 'Free Fire',
+        description: 'Free Fire Diamonds - 115💎 for characters, skins and upgrades. UID Required.',
         inStock: true
     },
     {
         id: '8',
-        name: 'Nintendo Switch Game Boy Edition',
-        price: 15000,
-        image: 'https://images.unsplash.com/photo-1555864326-5cf22ef123cf?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzV8MHwxfHNlYXJjaHw0fHxjb25zb2xlfGVufDB8fHx8MTc1NTQ4NjE3OXww&ixlib=rb-4.1.0&q=85',
-        category: 'Console',
-        platform: 'Nintendo',
-        description: 'Retro-styled Nintendo Switch with classic Game Boy aesthetics.',
+        name: 'Free Fire - 240 Diamonds',
+        price: 180,
+        image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=500&h=300&fit=crop&crop=center',
+        category: 'Game Currency',
+        platform: 'Free Fire',
+        description: 'Free Fire Diamonds - 240💎 for characters, skins and upgrades. UID Required.',
+        inStock: true
+    },
+    {
+        id: '9',
+        name: 'Free Fire - 610 Diamonds',
+        price: 435,
+        image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=500&h=300&fit=crop&crop=center',
+        category: 'Game Currency',
+        platform: 'Free Fire',
+        description: 'Free Fire Diamonds - 610💎 for characters, skins and upgrades. UID Required.',
+        inStock: true
+    },
+    {
+        id: '10',
+        name: 'Free Fire - 1240 Diamonds',
+        price: 855,
+        image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=500&h=300&fit=crop&crop=center',
+        category: 'Game Currency',
+        platform: 'Free Fire',
+        description: 'Free Fire Diamonds - 1240💎 for characters, skins and upgrades. UID Required.',
+        inStock: true
+    },
+    {
+        id: '11',
+        name: 'Free Fire - 5060 Diamonds',
+        price: 3410,
+        image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=500&h=300&fit=crop&crop=center',
+        category: 'Game Currency',
+        platform: 'Free Fire',
+        description: 'Free Fire Diamonds - 5060💎 MEGA PACK for characters, skins and upgrades. UID Required.',
+        inStock: true
+    },
+
+    // Free Fire Passes
+    {
+        id: '12',
+        name: 'Free Fire Weekly Pass',
+        price: 175,
+        image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=500&h=300&fit=crop&crop=center',
+        category: 'Game Pass',
+        platform: 'Free Fire',
+        description: 'Free Fire Weekly Pass - Unlock exclusive rewards and benefits.',
+        inStock: true
+    },
+    {
+        id: '13',
+        name: 'Free Fire Monthly Pass',
+        price: 860,
+        image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=500&h=300&fit=crop&crop=center',
+        category: 'Game Pass',
+        platform: 'Free Fire',
+        description: 'Free Fire Monthly Pass - Unlock exclusive rewards and benefits.',
+        inStock: true
+    },
+    {
+        id: '14',
+        name: 'Free Fire Combo Pass (Weekly + Monthly)',
+        price: 1020,
+        image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=500&h=300&fit=crop&crop=center',
+        category: 'Game Pass',
+        platform: 'Free Fire',
+        description: '🔥 COMBO OFFER! Weekly + Monthly Pass bundle - Best value deal!',
+        inStock: true
+    },
+
+    // Discord Nitro
+    {
+        id: '15',
+        name: 'Discord Nitro Basic - 1 Month',
+        price: 440,
+        image: 'https://images.unsplash.com/photo-1611605698335-8b1569810432?w=500&h=300&fit=crop&crop=center',
+        category: 'Subscription',
+        platform: 'Discord',
+        description: 'Discord Nitro Basic subscription - Enhanced chat features and perks.',
+        inStock: true
+    },
+    {
+        id: '16',
+        name: 'Discord Nitro - 1 Month',
+        price: 1499,
+        image: 'https://images.unsplash.com/photo-1611605698335-8b1569810432?w=500&h=300&fit=crop&crop=center',
+        category: 'Subscription',
+        platform: 'Discord',
+        description: 'Discord Nitro Premium subscription - All features unlocked.',
+        inStock: true
+    },
+
+    // Roblox & Minecraft
+    {
+        id: '17',
+        name: 'Roblox 400 Robux Gift Card',
+        price: 720,
+        image: 'https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=500&h=300&fit=crop&crop=center',
+        category: 'Game Currency',
+        platform: 'Roblox',
+        description: 'Roblox Digital Gift Card - 400 Robux for games, accessories, and upgrades.',
+        inStock: true
+    },
+    {
+        id: '18',
+        name: 'Minecraft Account (Java + Bedrock)',
+        price: 3999,
+        image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop&crop=center',
+        category: 'Game Account',
+        platform: 'PC/Mobile',
+        description: 'Brand New Minecraft Account with Java + Bedrock editions included.',
         inStock: true
     }
 ];
