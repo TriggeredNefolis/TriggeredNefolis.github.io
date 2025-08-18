@@ -1,32 +1,25 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, EmailStr
-from motor.motor_asyncio import AsyncIOMotorClient
 from typing import List, Optional, Dict, Any
 import os
 from dotenv import load_dotenv
 import uuid
 import httpx
 from datetime import datetime
+import json
 
 load_dotenv()
 
 app = FastAPI(title="GamePort Nepal API")
 
-# MongoDB connection
-MONGO_URL = os.getenv("MONGO_URL", "mongodb://localhost:27017")
-client = AsyncIOMotorClient(MONGO_URL)
-db = client["gameport_nepal"]
-products_collection = db["products"]
-carts_collection = db["carts"]
-orders_collection = db["orders"]
+# In-memory storage for out-of-the-box deployment
+# This will work immediately without any database setup!
+products_db = []
+carts_db = {}
+orders_db = {}
 
 # CORS configuration
-origins = [
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
-]
-
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -153,48 +146,44 @@ SAMPLE_PRODUCTS = [
 
 @app.on_event("startup")
 async def startup_event():
-    # Initialize database with sample products
-    existing_products = await products_collection.count_documents({})
-    if existing_products == 0:
-        await products_collection.insert_many(SAMPLE_PRODUCTS)
+    # Initialize in-memory database with sample products
+    global products_db
+    if not products_db:
+        products_db = SAMPLE_PRODUCTS.copy()
 
 @app.get("/")
 async def root():
-    return {"message": "GamePort Nepal API is running!"}
+    return {"message": "GamePort Nepal API is running!", "status": "out-of-the-box-ready"}
 
 @app.get("/api/products", response_model=List[Product])
 async def get_products():
-    products = await products_collection.find({}, {"_id": 0}).to_list(length=None)
-    return products
+    return products_db
 
 @app.get("/api/products/{product_id}")
 async def get_product(product_id: str):
-    product = await products_collection.find_one({"id": product_id}, {"_id": 0})
+    product = next((p for p in products_db if p["id"] == product_id), None)
     if not product:
         raise HTTPException(status_code=404, detail="Product not found")
     return product
 
 @app.get("/api/cart/{cart_id}")
 async def get_cart(cart_id: str):
-    cart = await carts_collection.find_one({"id": cart_id}, {"_id": 0})
-    if not cart:
-        # Create new cart
-        new_cart = {"id": cart_id, "items": [], "total": 0.0}
-        await carts_collection.insert_one(new_cart)
-        return new_cart
-    return cart
+    if cart_id not in carts_db:
+        carts_db[cart_id] = {"id": cart_id, "items": [], "total": 0.0}
+    return carts_db[cart_id]
 
 @app.post("/api/cart/{cart_id}/add")
 async def add_to_cart(cart_id: str, cart_item: CartItem):
     # Get product details
-    product = await products_collection.find_one({"id": cart_item.product_id}, {"_id": 0})
+    product = next((p for p in products_db if p["id"] == cart_item.product_id), None)
     if not product:
         raise HTTPException(status_code=404, detail="Product not found")
     
     # Get or create cart
-    cart = await carts_collection.find_one({"id": cart_id}, {"_id": 0})
-    if not cart:
-        cart = {"id": cart_id, "items": [], "total": 0.0}
+    if cart_id not in carts_db:
+        carts_db[cart_id] = {"id": cart_id, "items": [], "total": 0.0}
+    
+    cart = carts_db[cart_id]
     
     # Check if item already exists in cart
     existing_item = None
@@ -217,25 +206,17 @@ async def add_to_cart(cart_id: str, cart_item: CartItem):
     # Recalculate total
     cart["total"] = sum(item["price"] * item["quantity"] for item in cart["items"])
     
-    # Update or insert cart
-    await carts_collection.replace_one(
-        {"id": cart_id},
-        cart,
-        upsert=True
-    )
-    
     return cart
 
 @app.delete("/api/cart/{cart_id}/remove/{product_id}")
 async def remove_from_cart(cart_id: str, product_id: str):
-    cart = await carts_collection.find_one({"id": cart_id}, {"_id": 0})
-    if not cart:
+    if cart_id not in carts_db:
         raise HTTPException(status_code=404, detail="Cart not found")
     
+    cart = carts_db[cart_id]
     cart["items"] = [item for item in cart["items"] if item["product_id"] != product_id]
     cart["total"] = sum(item["price"] * item["quantity"] for item in cart["items"])
     
-    await carts_collection.replace_one({"id": cart_id}, cart)
     return cart
 
 @app.post("/api/orders")
@@ -256,8 +237,8 @@ async def create_order(order_request: OrderRequest):
             "created_at": datetime.utcnow().isoformat()
         }
         
-        # Save to database
-        await orders_collection.insert_one(order)
+        # Save to in-memory database
+        orders_db[order_id] = order
         
         # Format order for Discord
         items_text = "\n".join([
@@ -292,8 +273,11 @@ async def create_order(order_request: OrderRequest):
         
         # Send to Discord (if webhook URL is configured)
         if DISCORD_WEBHOOK_URL != "https://discord.com/api/webhooks/YOUR_WEBHOOK_ID/YOUR_WEBHOOK_TOKEN":
-            async with httpx.AsyncClient() as client:
-                await client.post(DISCORD_WEBHOOK_URL, json=discord_message)
+            try:
+                async with httpx.AsyncClient() as client:
+                    await client.post(DISCORD_WEBHOOK_URL, json=discord_message)
+            except:
+                pass  # Continue even if Discord webhook fails
         
         return {
             "success": True,
@@ -308,7 +292,16 @@ async def create_order(order_request: OrderRequest):
 
 @app.get("/api/orders/{order_id}")
 async def get_order(order_id: str):
-    order = await orders_collection.find_one({"id": order_id}, {"_id": 0})
-    if not order:
+    if order_id not in orders_db:
         raise HTTPException(status_code=404, detail="Order not found")
-    return order
+    return orders_db[order_id]
+
+@app.get("/api/health")
+async def health_check():
+    return {
+        "status": "healthy",
+        "products": len(products_db),
+        "carts": len(carts_db),
+        "orders": len(orders_db),
+        "deployment": "out-of-the-box-ready"
+    }
