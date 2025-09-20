@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GamePort Nepal - Gaming Paradise</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-gamepad"></i>
+                    <div>
+                        <h1>GamePort Nepal</h1>
+                        <p>Your Gaming Paradise</p>
+                    </div>
+                </div>
+                
+                <div class="header-buttons">
+                    <button class="btn btn-outline" id="admin-btn" onclick="showAdminLogin()">
+                        <i class="fas fa-user-shield"></i>
+                        Admin
+                    </button>
+                    <a href="mailto:gameportnepal@gmail.com" class="btn btn-outline">
+                        <i class="fas fa-envelope"></i>
+                        Contact
+                    </a>
+                    <a href="https://discord.gg/XjuaQBFD8W" target="_blank" class="btn btn-outline">
+                        <i class="fab fa-discord"></i>
+                        Discord
+                    </a>
+                    <button class="btn btn-primary" onclick="showCart()">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span id="cart-count">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h2>Game On Nepal!</h2>
+                <p>Get your favorite gaming currencies, items, and subscriptions. PUBG UC, Free Fire Diamonds, Roblox, Discord Nitro and more!</p>
+                <div class="hero-features">
+                    <div class="feature">
+                        <i class="fas fa-coins"></i>
+                        <span>Gaming Currency</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-gem"></i>
+                        <span>Digital Items</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-shipping-fast"></i>
+                        <span>Instant Delivery</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products">
+        <div class="container">
+            <h3>Featured Products</h3>
+            <div class="products-grid" id="products-grid">
+                <!-- Products will be loaded here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>Shopping Cart</h4>
+                <span class="close" onclick="closeCart()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="cart-items"></div>
+                <div class="cart-total">
+                    <strong>Total: Rs. <span id="cart-total">0</span></strong>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary btn-full" onclick="proceedToOrder()">
+                    <i class="fab fa-discord"></i>
+                    Order via Discord
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Form Modal -->
+    <div id="order-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>Complete Your Order</h4>
+                <span class="close" onclick="closeOrder()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="order-form">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Delivery Address *</label>
+                        <textarea id="address" required rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="notes">Notes (Optional)</label>
+                        <textarea id="notes" rows="2" placeholder="For Free Fire diamonds, please include your UID here..."></textarea>
+                    </div>
+                    
+                    <div class="order-summary">
+                        <h5>Order Summary:</h5>
+                        <div id="order-items"></div>
+                        <div class="order-total">
+                            <strong>Total: Rs. <span id="order-total">0</span></strong>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary btn-full" onclick="submitOrder()">
+                    <i class="fab fa-discord"></i>
+                    Send Order to Discord
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <i class="fas fa-gamepad"></i>
+                        <h3>GamePort Nepal</h3>
+                    </div>
+                    <p>Your trusted digital gaming store in Nepal. We provide gaming currencies, premium accounts, and digital items.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <div class="contact-info">
+                        <a href="mailto:gameportnepal@gmail.com">
+                            <i class="fas fa-envelope"></i>
+                            gameportnepal@gmail.com
+                        </a>
+                        <a href="https://discord.gg/XjuaQBFD8W" target="_blank">
+                            <i class="fab fa-discord"></i>
+                            Join our Discord
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li>PUBG UC</li>
+                        <li>Free Fire Diamonds</li>
+                        <li>Roblox Robux</li>
+                        <li>Discord Nitro</li>
+                        <li>Game Accounts</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 GamePort Nepal. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Admin Login Modal -->
+    <div id="admin-login-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>Admin Login</h4>
+                <span class="close" onclick="closeAdminLogin()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="admin-login-form">
+                    <div class="form-group">
+                        <label for="admin-email">Admin Email</label>
+                        <input type="email" id="admin-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="admin-password">Password</label>
+                        <input type="password" id="admin-password" required>
+                    </div>
+                    <div id="admin-error" class="error-message" style="display: none;"></div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary btn-full" onclick="adminLogin(event)">
+                    <i class="fas fa-sign-in-alt"></i>
+                    Login as Admin
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Panel Modal -->
+    <div id="admin-panel-modal" class="modal admin-panel-modal">
+        <div class="modal-content admin-panel">
+            <div class="modal-header">
+                <h4>🛡️ Admin Panel - GamePort Nepal</h4>
+                <div>
+                    <button class="btn btn-outline btn-sm" onclick="logoutAdmin()">Logout</button>
+                    <span class="close" onclick="closeAdminPanel()">&times;</span>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="admin-tabs">
+                    <button class="tab-btn active" onclick="showTab('products')">Manage Products</button>
+                    <button class="tab-btn" onclick="showTab('add-product')">Add New Product</button>
+                </div>
+                
+                <!-- Products Management Tab -->
+                <div id="products-tab" class="tab-content active">
+                    <div class="admin-products-grid" id="admin-products-list">
+                        <!-- Products will be loaded here -->
+                    </div>
+                </div>
+                
+                <!-- Add Product Tab -->
+                <div id="add-product-tab" class="tab-content">
+                    <form id="add-product-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="product-name">Product Name</label>
+                                <input type="text" id="product-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="product-price">Price (Rs.)</label>
+                                <input type="number" id="product-price" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="product-category">Category</label>
+                                <select id="product-category" required>
+                                    <option value="">Select Category</option>
+                                    <option value="Game Currency">Game Currency</option>
+                                    <option value="Game Pass">Game Pass</option>
+                                    <option value="Subscription">Subscription</option>
+                                    <option value="Game Account">Game Account</option>
+                                    <option value="Cosmetic">Cosmetic</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="product-platform">Platform</label>
+                                <input type="text" id="product-platform" placeholder="e.g., Free Fire, PUBG, Discord" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="product-image">Image URL</label>
+                            <input type="url" id="product-image" placeholder="https://example.com/image.jpg" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="product-description">Description</label>
+                            <textarea id="product-description" rows="3" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-plus"></i>
+                            Add Product
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

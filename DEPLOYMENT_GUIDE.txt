@@ -1,0 +1,41 @@
+📁 GamePort Nepal - Complete Website Package
+
+🚀 DEPLOYMENT INSTRUCTIONS:
+
+OPTION 1 - NETLIFY (RECOMMENDED):
+1. Go to netlify.com
+2. Sign up (free)
+3. Drag these 3 files into the deploy area:
+   - index.html
+   - style.css  
+   - script.js
+4. Your site will be live instantly!
+
+OPTION 2 - VERCEL:
+1. Go to vercel.com
+2. Sign up (free)
+3. Create new project
+4. Upload these files
+5. Deploy!
+
+OPTION 3 - GitHub Alternative:
+1. Create new free GitHub account
+2. Create repository 
+3. Upload these files
+4. Enable Pages
+
+🔑 ADMIN CREDENTIALS:
+Email: helpiamlaggy@gmail.com
+Password: Triggared_nefolis1
+
+✨ FEATURES:
+- Complete admin system (add/edit/delete products)
+- Sub-products with price variants
+- Discount management system
+- Discord webhook integration
+- Mobile responsive design
+- Professional gaming theme
+
+🎮 Your GamePort Nepal is ready to go live!
+
+Need help? The admin panel is fully functional and your Discord webhook is connected!
